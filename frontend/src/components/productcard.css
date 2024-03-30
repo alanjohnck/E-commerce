@@ -1,0 +1,27 @@
+
+.product-box{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 40%;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+.product-top-section{
+    background-color: #F5F6F6;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 70%;
+}
+.product-bottom-section{
+    display: flex;
+    height: 30%;
+    background-color: white;
+}
+.product-top-section img{
+    
+    overflow: hidden;
+    object-fit: cover;
+}

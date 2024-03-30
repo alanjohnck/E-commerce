@@ -6,6 +6,9 @@ const bcrypt = require("bcrypt");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+
+
 app.post("/createUser", async(req, res) => {
     console.log(req.body);
     const { email, password } = req.body;
@@ -24,6 +27,21 @@ app.post("/createUser", async(req, res) => {
         }
     });
 });
+
+
+app.get("/getProductData",async(req,res)=>{
+    pool.query("SELECT * FROM product_detail",(err,result)=>{
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows); 
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+})
 
 
 app.listen(8000, () => {

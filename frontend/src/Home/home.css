@@ -1,0 +1,120 @@
+
+.marq{
+    padding: .5rem;
+}
+.marq-text{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.5rem;
+    animation: marquee 10s linear infinite;
+}
+.navbar{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    position: static;
+    
+}
+.logo-title{
+    color: #003D29;
+}
+.nav-list{
+    display: inline-flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    padding: 1%;
+}
+
+.nav-list li{
+    font-weight: 500;
+    padding: 10px;
+    margin: 1%;
+}
+.nav-search{
+    display: flex;
+}
+.search{
+    padding: 4%;
+    width: 350px;
+    border-radius:25px ;
+    border: 1px grey solid;
+}
+.nav-account{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    padding: 1%;
+}
+
+.nav-account .account{
+    display: flex;
+}
+
+.nav-account .cart{
+    display: flex;
+}
+
+.advertisement-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.advertisement-content{
+    width: 91vw;
+    height:40vh;
+    background-color: #FBF0E4;
+    display: flex;
+   
+   
+}
+.advertisement-content .left-part{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+}
+.left-part button{
+    width: 200px;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    font-size: larger;
+    font-weight:lighter;
+    background-color: #003D29;
+    padding: 2%;
+}
+.advertisement-content .right-part-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.right-part-img img{
+    width: 300px;
+    height:300px;
+    object-fit: cover;
+}
+
+.product-outer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.product-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    align-items: baseline;
+    padding: 2%;
+    height: 100vh;
+    width: 87vw;
+}
