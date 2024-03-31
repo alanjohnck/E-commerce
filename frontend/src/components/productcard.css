@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 20%;
     height: 40%;
-    border-radius: 10px; 
+    border-radius: 15px; 
     overflow: hidden;
 }
 .product-top-section{
@@ -24,4 +24,34 @@
     
     overflow: hidden;
     object-fit: cover;
+}
+.product-left{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+    width: 80%;
+    flex-direction: column;
+    gap: 3px;
+}
+.product-left button{
+    height: 300px;
+    width: 70%;
+    margin-bottom: 5%;
+    padding: 5%;
+    border-radius: 25px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+.product-left button:hover{
+    background-color:#003D29;
+    border-color:#003D29 ;
+    color: white;
+}
+.product-right{
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+    width: 30%;
+    color: green;
 }

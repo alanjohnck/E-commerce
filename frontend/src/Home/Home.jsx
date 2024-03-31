@@ -5,17 +5,36 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 function Home() {
     const[productData,setProductData]=useState([]);
+    const [currentAdIndex, setCurrentAdIndex] = useState(0);
+    const [offers, setOffers] = useState([]);
+    
+useEffect(()=>{
+    axios.get('http://localhost:8000/getProductData')
+    .then((response)=>{
+       
+        setProductData(response.data)
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
 
-    useEffect(()=>{
-        axios.get('http://localhost:8000/getProductData')
-        .then((response)=>{
-           
-            setProductData(response.data)
-        })
-        .catch((error)=>{
+} , []);  
+useEffect(()=>{
+         axios.get('http://localhost:8000/getOfferDetails')
+          .then((response)=>{
+            console.log(response.data)
+            setOffers(response.data)
+          }).catch((error)=>{
             console.log(error)
-        })
-    },[])
+          })
+          const timer = setInterval(() => {
+            setCurrentAdIndex((prevIndex) => (prevIndex + 1) % offers.length);
+        }, 10000);
+        return () => {
+            clearInterval(timer);
+        };
+       
+},[offers.length])
 
   return (
     <div className='main'>
@@ -47,7 +66,7 @@ function Home() {
                   <img src=''>
 
                   </img>
-                  <p>Account</p>
+                 <p>Account</p>
                 </div>
                 <div className='cart'>
                    <img>
@@ -59,14 +78,14 @@ function Home() {
 
         </div>   
 
-{/* advertisement-section & advertisment table with three fields : image, title,colour and description */}
+{/* advertisement-section & offer table with three fields : image, info,colour and background colour */}
    <div className='advertisement-box'>
-        <div className='advertisement-content'>
+        <div style={{backgroundColor:offers[currentAdIndex]?.offer_background_color}} className='advertisement-content'>
             <div className='left-part'>
-               <h1>Grab Upto 50% Off On
+               <h1>{offers[currentAdIndex]?.offer_info}</h1>
                <br />
-                Selected Headphones</h1>
-               <button>buy</button>
+            
+               <button>Buy</button>
             </div>
             <div className='right-part-img'>
                 <img src='/images/image-removebg-preview.png' alt='ad-image'></img>

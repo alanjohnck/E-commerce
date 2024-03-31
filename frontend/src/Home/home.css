@@ -65,16 +65,17 @@
 .advertisement-content{
     width: 91vw;
     height:40vh;
-    background-color: #FBF0E4;
     display: flex;
-   
+   color: #fff;
    
 }
 .advertisement-content .left-part{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 50%;
+    gap: 10px;
+    text-align: center;
+    margin: 2%;
+    width: 60%;
     justify-content: center;
     align-items: center;
     font-size: larger;
@@ -86,7 +87,7 @@
     border: none;
     color: #fff;
     font-size: larger;
-    font-weight:lighter;
+    font-weight:bold;
     background-color: #003D29;
     padding: 2%;
 }

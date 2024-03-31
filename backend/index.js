@@ -43,7 +43,34 @@ app.get("/getProductData",async(req,res)=>{
     });
 })
 
+app.post("/addToCart",async(req,res)=>{
+    const {product_name,product_material,price}=req.body;
+    pool.query("INSERT INTO cart (product_name,product_material,price) VALUES ($1, $2, $3)", [product_name,product_material,price], (err, result) => {
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows); 
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+});
 
+app.get("/getOfferDetails",async(req,res)=>{
+    pool.query("SELECT * FROM offers",(err,result)=>{
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows); 
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+})
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
     }
