@@ -6,7 +6,7 @@ function ProductCard(props) {
         await axios.post('http://localhost:8000/addToCart', props)
     }
   return (
-       <div className='product-box'>
+       <div className='product-box' id={props.product_id}>
           <div className='product-top-section'>
               <img src={props.image}>
 

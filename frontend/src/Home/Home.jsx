@@ -3,6 +3,7 @@ import "../Home/home.css"
 import ProductCard from '../components/ProductCard'
 import {useState,useEffect} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 function Home() {
     const[productData,setProductData]=useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -18,7 +19,8 @@ useEffect(()=>{
         console.log(error)
     })
 
-} , []);  
+} , [productData.length]);  
+
 useEffect(()=>{
          axios.get('http://localhost:8000/getOfferDetails')
           .then((response)=>{
@@ -29,7 +31,7 @@ useEffect(()=>{
           })
           const timer = setInterval(() => {
             setCurrentAdIndex((prevIndex) => (prevIndex + 1) % offers.length);
-        }, 10000);
+        }, 5000);
         return () => {
             clearInterval(timer);
         };
@@ -50,7 +52,7 @@ useEffect(()=>{
         <div className='navbar'>
 
             <ul className='nav-list' >
-                <h1 className='logo-title'>Shop Cart</h1>
+                <h1 className='logo-title'>ShopCart</h1>
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>About</li>
                 <li className='nav-item'>Contact</li>
@@ -72,7 +74,7 @@ useEffect(()=>{
                    <img>
 
                    </img>
-                   <p>Cart</p>
+                   <Link to='/cart'><p>Cart</p></Link>
                 </div>
             </div>
 
@@ -97,7 +99,8 @@ useEffect(()=>{
    <div className='product-details'>
    {productData.map((product)=>{
          return(
-              <ProductCard
+              <ProductCard 
+              product_id={product.id}
               image={product.image}
               product_name={product.product_name}
               product_material={product.product_material}
