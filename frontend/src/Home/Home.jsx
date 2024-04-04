@@ -74,7 +74,7 @@ useEffect(()=>{
                    <img>
 
                    </img>
-                   <Link to='/cart'><p>Cart</p></Link>
+                   <Link className='nav-link' to='/cart'><p>Cart</p></Link>
                 </div>
             </div>
 
@@ -110,6 +110,11 @@ useEffect(()=>{
    })
    }
    </div>
+ </div>
+ <div className='product-section-outer'>
+          <div className='product-section'>
+                <h1>Products Available</h1>
+          </div>
  </div>
     </div>
   )
