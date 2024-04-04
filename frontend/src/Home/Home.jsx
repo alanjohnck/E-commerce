@@ -108,13 +108,36 @@ useEffect(()=>{
               />
          )
    })
-   }
+   }  
    </div>
  </div>
  <div className='product-section-outer'>
-          <div className='product-section'>
-                <h1>Products Available</h1>
+     <div className='product-section'>
+       <div className='product-section-header'>
+            <h1>Product Section</h1>
+       </div>
+       <div className='product-section-box'>
+          <div className='section-box'>
+                  
+
           </div>
+          <div  className='section-box'>
+
+          </div>
+          <div  className='section-box'>
+
+          </div>
+          <div  className='section-box'>
+
+          </div>
+          <div  className='section-box'>
+
+          </div>
+          <div  className='section-box'>
+
+          </div>
+      </div>
+    </div>
  </div>
     </div>
   )
