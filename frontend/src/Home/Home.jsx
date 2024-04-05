@@ -49,6 +49,7 @@ useEffect(()=>{
         </div>
 
 {/* navbar-section */}
+<div>
         <div className='navbar'>
 
             <ul className='nav-list' >
@@ -79,7 +80,7 @@ useEffect(()=>{
             </div>
 
         </div>   
-
+</div>
 {/* advertisement-section & offer table with three fields : image, info,colour and background colour */}
    <div className='advertisement-box'>
         <div style={{backgroundColor:offers[currentAdIndex]?.offer_background_color}} className='advertisement-content'>
@@ -114,27 +115,44 @@ useEffect(()=>{
  <div className='product-section-outer'>
      <div className='product-section'>
        <div className='product-section-header'>
-            <h1>Product Section</h1>
+            <h1>Top Categories</h1>
        </div>
        <div className='product-section-box'>
           <div className='section-box'>
-                  
+                  <h2 className='section-box-header'>Furniture</h2>
+                  <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e570738029a725e686_Furniture-min.png'>
 
+                  </img>
           </div>
           <div  className='section-box'>
+                 <h2 className='section-box-header'>Hand bag</h2>
+                 <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e52d6553668075697e_hand%20bag-min.png'>
 
+                 </img>
           </div>
           <div  className='section-box'>
+                <h2 className='section-box-header'>Books</h2>
+                <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e460afc22b7ea53520_books-min.png'>
 
+                </img>
           </div>
           <div  className='section-box'>
+                 <h2 className='section-box-header'>Tech</h2>
+                <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e754ac2e32897cb53b_tech-min.png'>
 
+                </img>
           </div>
           <div  className='section-box'>
+               <h2 className='section-box-header'>Sneakers</h2>
+               <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e64b769118272f244f_sneakers-min.png'>
 
+               </img>
           </div>
           <div  className='section-box'>
+               <h2 className='section-box-header'>Travel</h2>
+               <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e71eb4ad6d07e7568f_travel-min.png'>
 
+               </img>
           </div>
       </div>
     </div>
