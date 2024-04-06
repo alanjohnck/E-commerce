@@ -1,6 +1,7 @@
 import React from 'react'
 import "../Home/home.css"
 import ProductCard from '../components/ProductCard'
+import ServiceCard from '../components/ServiceCard'
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ function Home() {
     const[productData,setProductData]=useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
     const [offers, setOffers] = useState([]);
-    
+
 useEffect(()=>{
     axios.get('http://localhost:8000/getProductData')
     .then((response)=>{
@@ -18,8 +19,10 @@ useEffect(()=>{
     .catch((error)=>{
         console.log(error)
     })
+    
 
 } , [productData.length]);  
+
 
 useEffect(()=>{
          axios.get('http://localhost:8000/getOfferDetails')
@@ -37,6 +40,53 @@ useEffect(()=>{
         };
        
 },[offers.length])
+
+useEffect(() => {
+    const boxes = document.querySelectorAll('.product-section-box','.services');
+    const windowHeight = window.innerHeight;
+
+    function checkScroll() {
+      boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+
+        if (boxTop < windowHeight) {
+          box.style.animation = '';
+        } else {
+          box.style.animation = 'none';
+        }
+      });
+    }
+
+    checkScroll(); 
+    window.addEventListener('scroll', checkScroll); 
+
+    return () => {
+      window.removeEventListener('scroll', checkScroll); 
+    }
+  }, []);
+
+
+  //services object
+
+const services = [
+    {
+      service_name: 'Online Payment',
+      service_desc:"Updates on safe Shopping in our Stores",
+      service_img:"https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6707380718425e697_onlie%20payment-min.png"
+    },
+    {
+      service_name:"Home Delivey option",
+      service_desc:"Updates on safe Shopping in our Stores",
+      service_img:"https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e544663ba3d0fd2bb8_home%20delivery-min.png"
+    },
+    {
+      service_name:"Frequently Asked Questions",
+      service_desc:"Updates on safe Shopping in our Stores",
+      service_img:"https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e55b939fea169c0292_faq-min.png"
+    }
+      ];
+
+    //services object
 
   return (
     <div className='main'>
@@ -112,6 +162,7 @@ useEffect(()=>{
    }  
    </div>
  </div>
+
  <div className='product-section-outer'>
      <div className='product-section'>
        <div className='product-section-header'>
@@ -157,7 +208,41 @@ useEffect(()=>{
       </div>
     </div>
  </div>
+  <div className='trending-products'>
+     <div className='trending-container'>
+      <div>
+            <h1>Trending Products</h1>
+      </div>
+      <div>
+            <h1>Trending Products</h1>
+      </div>
+      </div>
+  </div>
+ <div className='offer'>
+
+     <div className='offer-content'>
+            <img src="https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e51a7c201f00ec5fe3_biscount%20banner-min.png">
+
+            </img>
+     </div>
+
+ </div>
+ <div className='services'>
+        {services.map((service)=>{
+            return(
+                <ServiceCard 
+                service_name={service.service_name}
+                service_desc={service.service_desc}
+                image={service.service_img}
+                />
+            )
+        })
+        }   
+ </div>
+    <div className='footer'>
+        <h1>footer</h1>
     </div>
+</div>
   )
 }
 

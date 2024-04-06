@@ -133,7 +133,7 @@
 .product-section-outer{
     display: flex; 
     width:100vw;
-    height: 100vh;
+    height: 70vh;
     justify-content: baseline;
     align-items: baseline;
 }
@@ -151,7 +151,16 @@
     align-items: center;
     height: 15rem;
     gap: 2rem;
+    opacity: 0;
+   transform: translateY(20px);
+   animation: fadeInUp 1s ease-out forwards;
 }
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 .section-box{
     display: flex;
     flex-direction: column;
@@ -179,6 +188,34 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+.offer{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.offer-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 95vw;
+}
+.trending-products{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 50vh;
+    width: 100vw;
+}
 
-    
+.services{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 2px;
+    height:80vh;
+    width: 100vw;
 }

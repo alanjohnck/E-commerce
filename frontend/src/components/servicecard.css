@@ -1,0 +1,32 @@
+.service-card{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 70%;
+    margin: 6%;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.service-card-top{
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    font-size: bold;
+    gap: 1rem;
+    background-color: aliceblue;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.service-card-bottom{
+    height: 60%;
+}
+.service-card-bottom img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius:0 0 25px 25px ;
+}
