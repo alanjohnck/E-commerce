@@ -5,6 +5,7 @@ import ServiceCard from '../components/ServiceCard'
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import TrendingProductCard from '../components/TrendingProductCard';
 function Home() {
     const[productData,setProductData]=useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -42,7 +43,7 @@ useEffect(()=>{
 },[offers.length])
 
 useEffect(() => {
-    const boxes = document.querySelectorAll('.product-section-box','.services');
+    const boxes = document.querySelectorAll('.product-section-box',);
     const windowHeight = window.innerHeight;
 
     function checkScroll() {
@@ -64,7 +65,18 @@ useEffect(() => {
       window.removeEventListener('scroll', checkScroll); 
     }
   }, []);
-
+//trending product object
+  const trendingProducts =
+  [{
+    product_name: 'Furniture Village',
+    product_desc: 'Delivery within 24 hours',
+    img_url:'https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6cd3678e82164f755_furniture%20village-min.png'
+  },{
+    product_name:'Fashion World',
+    product_desc:'Delivery within 24 hours',
+    img_url:'https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e6037f3b456acf2024_Fashion%20world-min.png'
+  }
+]
 
   //services object
 
@@ -209,14 +221,21 @@ const services = [
     </div>
  </div>
   <div className='trending-products'>
-     <div className='trending-container'>
-      <div>
-            <h1>Trending Products</h1>
-      </div>
-      <div>
-            <h1>Trending Products</h1>
-      </div>
-      </div>
+      <div className='trending-container-header'>
+           <h1> Trending Products</h1> 
+      </div>   
+      <div className='trending-items'>
+      {trendingProducts.map((product)=>{
+            return(
+                <TrendingProductCard 
+                product_name={product.product_name}
+                product_desc={product.product_desc}
+                img_url={product.img_url}
+                />
+            )
+        })
+      }
+      </div>  
   </div>
  <div className='offer'>
 
@@ -239,9 +258,9 @@ const services = [
         })
         }   
  </div>
-    <div className='footer'>
-        <h1>footer</h1>
-    </div>
+  <div className='footer'>
+        
+   </div>
 </div>
   )
 }
