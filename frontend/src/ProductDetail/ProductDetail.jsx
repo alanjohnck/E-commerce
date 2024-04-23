@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ProductDetail.css';
+import './productdetail.css';
 
 function ProductDetail() {
   const [selectedVariant, setSelectedVariant] = useState('Default');
