@@ -31,7 +31,7 @@ useEffect(()=>{
           })
           const timer = setInterval(() => {
             setCurrentAdIndex((prevIndex) => (prevIndex + 1) % offers.length);
-        }, 5000);
+        }, 5000); 
         return () => {
             clearInterval(timer);
         };
