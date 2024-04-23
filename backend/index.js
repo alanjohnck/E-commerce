@@ -114,6 +114,24 @@ app.get("/getOfferDetails",async(req,res)=>{
         }
     });
 })
+//bug
+
+app.get("/getViewDetails", async (req, res) => {
+    const category = req.query; // Use the category from the query string if it exists, otherwise default to 'tech'
+    const sqlQuery = `SELECT * FROM product_detail WHERE category='${category}'`;
+
+    pool.query(sqlQuery, (err, result) => {
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows); 
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+});
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
     }

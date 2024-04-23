@@ -16,6 +16,7 @@ const[cartData,setCartData]=useState([])
       useEffect(() => {
         getCartData();
       }, []);
+      
     const removeFromCart = async(cart_id)=>{
         await axios.delete('http://localhost:8000/removeFromCart',{data:{cart_id}})
             .then((res)=>{
@@ -23,10 +24,15 @@ const[cartData,setCartData]=useState([])
                 getCartData();
             })
     }
+
+
+
   return (
     <div>
        {/*cart page UI*/}
-            
+
+          <h1>hello</h1> 
+
     </div>
   )
 }
