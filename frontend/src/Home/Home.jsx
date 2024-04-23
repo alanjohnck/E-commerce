@@ -6,11 +6,16 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import TrendingProductCard from '../components/TrendingProductCard';
+import ViewProduct from '../viewProducts/ViewProduct';
 function Home() {
     const[productData,setProductData]=useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
     const [offers, setOffers] = useState([]);
+    const [category, setCategory] = useState(null);
 
+    const handleClick = (category) => {
+      setCategory(category);
+    }
 useEffect(()=>{
     axios.get('http://localhost:8000/getProductData')
     .then((response)=>{
@@ -181,11 +186,11 @@ const services = [
             <h1>Top Categories</h1>
        </div>
        <div className='product-section-box'>
-          <div className='section-box'>
+          <div className='section-box' onClick={() => handleClick('furniture')}>
                   <h2 className='section-box-header'>Furniture</h2>
                   <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e570738029a725e686_Furniture-min.png'>
-
                   </img>
+             
           </div>
           <div  className='section-box'>
                  <h2 className='section-box-header'>Hand bag</h2>
@@ -259,7 +264,7 @@ const services = [
         }   
  </div>
   <div className='footer'>
-        
+        <h1>Shopkart</h1>
    </div>
 </div>
   )

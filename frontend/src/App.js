@@ -5,6 +5,7 @@ import axios from 'axios';
 import Home from './Home/Home';
 import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
 import CartPage from './CartPage/CartPage';
+import ViewProduct from './viewProducts/ViewProduct';
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<CartPage />}/>
+          <Route path='/viewproduct' element={<ViewProduct />} />
       </Routes>
     </div>
     </Router>
