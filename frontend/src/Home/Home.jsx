@@ -52,7 +52,7 @@ useEffect(()=>{
         <div className='navbar'>
 
             <ul className='nav-list' >
-                <h1 className='logo-title'>ShopCart</h1>
+                <h1 className='logo-title'>ShopssCart</h1>
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>About</li>
                 <li className='nav-item'>Contact</li>
