@@ -1,14 +1,15 @@
 .product-detail-container {
     display: flex;
+    width: 100;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     padding: 20px;
   }
   
   .product-detail {
     display: flex;
-    max-width: 800px;
+    max-width: 70%;
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -17,12 +18,15 @@
   }
   
   .main-image {
+    display: flex;
     flex: 1;
+    justify-content: center;
+    align-items: center;
   }
   
   .main-image img {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
@@ -74,6 +78,7 @@
   }
   
   .add-to-cart {
+    margin: 2%;
     padding: 12px 24px;
     font-size: 18px;
     background-color: #ff9f00;

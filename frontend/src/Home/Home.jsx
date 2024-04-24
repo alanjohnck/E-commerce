@@ -136,7 +136,7 @@ const services = [
                   <img src=''>
 
                   </img>
-                 <p>Account</p>
+                 <p><Link to='/signup'>Sign Up</Link></p>
                 </div>
                 <div className='cart'>
                    <img>
