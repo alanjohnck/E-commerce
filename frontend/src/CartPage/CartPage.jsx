@@ -25,7 +25,7 @@ const[cartData,setCartData]=useState([])
     }
   return (
     <div>
-       {/*cart page UI*/}
+     <h1>hello</h1>
             
     </div>
   )
