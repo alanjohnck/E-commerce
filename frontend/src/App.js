@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
 import CartPage from './CartPage/CartPage';
 import ViewProduct from './viewProducts/ViewProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
+import Register from './CreateUserPage/Register';
 function App() {
 
   return (
@@ -16,7 +17,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<CartPage />}/>
           <Route path='/viewproduct' element={<ViewProduct />} />
-         <Route path='/productdetail' element={<ProductDetail />} />
+          <Route path='/product/:id' element={<ProductDetail />} />
+          <Route path='/signup' element={<Register />} />
       </Routes>
     </div>
     </Router>
