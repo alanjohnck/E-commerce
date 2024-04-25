@@ -6,7 +6,7 @@ import {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import TrendingProductCard from '../components/TrendingProductCard';
-import ViewProduct from '../viewProducts/ViewProduct';
+import Navbar from '../components/Navbar';
 function Home() {
     const[productData,setProductData]=useState([]);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -116,37 +116,8 @@ const services = [
         </div>
 
 {/* navbar-section */}
-<div>
-        <div className='navbar'>
-
-            <ul className='nav-list' >
-                <h1 className='logo-title'>ShopssCart</h1>
-                <li className='nav-item'>Home</li>
-                <li className='nav-item'>About</li>
-                <li className='nav-item'>Contact</li>
-                <li className='nav-item'>Products</li>
-            </ul>   
-
-            <div className='nav-search'>
-                <input  type='text' placeholder='Search' className='search'/>
-            </div>
-
-            <div className='nav-account'>
-                <div className='account'>
-                  <img src=''>
-
-                  </img>
-                 <p><Link to='/signup'>Sign Up</Link></p>
-                </div>
-                <div className='cart'>
-                   <img>
-
-                   </img>
-                   <Link className='nav-link' to='/cart'><p>Cart</p></Link>
-                </div>
-            </div>
-
-        </div>   
+<div className='nav-main'>
+        <Navbar />
 </div>
 {/* advertisement-section & offer table with three fields : image, info,colour and background colour */}
    <div className='advertisement-box'>

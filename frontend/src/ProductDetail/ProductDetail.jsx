@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './productdetail.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import Navbar from '../components/Navbar';
 function ProductDetail() {
   const [selectedVariant, setSelectedVariant] = useState('Default');
   const [quantity, setQuantity] = useState(1);
@@ -18,7 +18,18 @@ function ProductDetail() {
     setSelectedVariant(variant);
   };
 
-
+  const productDetail = {
+    title: 'Wireless Over-Ear Headphones',
+    variants: ['Black', 'White', 'Red'],
+    prices: {
+      Black: 50,
+      White: 55,
+      Red: 45,
+    },
+    description:
+      'Immerse yourself in your favorite music with these Wireless Over-Ear Headphones. With high-quality sound and active noise cancellation, you can enjoy crisp, clear audio without any distractions. The ergonomic design and soft ear cushions provide long-lasting comfort, perfect for extended listening sessions. These headphones feature Bluetooth connectivity, allowing you to seamlessly pair them with your devices. The built-in microphone enables hands-free calling, making them ideal for on-the-go use. Whether you’re at home, in the office, or on the move, these headphones deliver an exceptional audio experience.',
+    images: ['https://rb.gy/ad5poi', 'https://via.placeholder.com/400', 'https://via.placeholder.com/400'],  
+  };
   const handleQuantityChange = (e) => {
     setQuantity(parseInt(e.target.value));
   };
@@ -38,9 +49,18 @@ function ProductDetail() {
 
   return (
     <div className="product-detail-container">
+      <div className='nav-main'>
+        <Navbar />
+      </div>
       <div className="product-detail">
         <div className="main-image">
           <img src={product.image} alt="Main Product" />
+          <div className="product-gallery">
+        {productDetail.images &&
+          productDetail.images.map((image, index) => (
+            <img key={index} src={image} alt={`Product ${index + 1}`} />
+          ))}
+      </div>
         </div>
         <div className="product-info">
           <h2 className="product-title">{product.product_name}</h2>
@@ -75,14 +95,14 @@ function ProductDetail() {
             />
           </div>
           <button className="add-to-cart">Add to Cart</button>
+          <button className='add-to-cart Buy-now'>Buy Now</button>
+          <div className='delivery-detail'>
+            <h4>Speed Delivery</h4>
+
+          </div>
         </div>
       </div>
-      <div className="product-gallery">
-        {product.images &&
-          product.images.map((image, index) => (
-            <img key={index} src={image} alt={`Product ${index + 1}`} />
-          ))}
-      </div>
+      
       <div className="product-reviews">
         <h3>Product Reviews</h3>
         <p>No reviews yet.</p>
