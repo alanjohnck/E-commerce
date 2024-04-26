@@ -105,7 +105,9 @@ function ProductDetail() {
           <div className='delivery-detail'>
            
             <h4>Speed Delivery</h4>
-            
+            <p>
+              Estimated Delivery on 18th june 2024
+            </p>
 
           </div>
         </div>
