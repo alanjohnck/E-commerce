@@ -48,7 +48,7 @@ useEffect(()=>{
 },[offers.length])
 
 useEffect(() => {
-    const boxes = document.querySelectorAll('.product-section-box',);
+    const boxes = document.querySelectorAll('.product-section-box,.services');
     const windowHeight = window.innerHeight;
 
     function checkScroll() {
@@ -232,10 +232,10 @@ const services = [
                 />
             )
         })
-        }   
+      }   
  </div>
    <footer className="footer">
-        <p>© 2022 My Website</p>
+        <p>© 2024 E-commerce</p>
         <p>Contact information: <a href="mailto:shopcart@example.com">shopcart@gmail.com</a>.</p>
       </footer>
 </div>

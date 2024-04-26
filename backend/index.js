@@ -88,7 +88,7 @@ app.get("/getOfferDetails",async(req,res)=>{
 
 app.get("/getViewproduct/:search", async (req, res) => {
     const {search} = req.params; 
-    pool.query('SELECT * FROM product_detail WHERE category=$1',[search], (err, result) => {
+    pool.query('SELECT * FROM product_detail WHERE product_name LIKE $1',[`%${search}%`], (err, result) => {
         try {
             if (err) {
                 throw err;

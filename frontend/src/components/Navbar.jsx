@@ -29,7 +29,7 @@ function Navbar() {
 
     const handleClick = () => {
         if (username) {
-            alert('You are logged in');
+            alert('You are Signed in');
         }
     };
 
@@ -37,7 +37,7 @@ function Navbar() {
         <div className='navbar'>
 
             <ul className='nav-list' >
-                <h1 className='logo-title'>ShopsCart</h1>
+                <h1 className='logo-title'>ShopCart</h1>
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>About</li>
                 <li className='nav-item'>Products</li>
@@ -78,7 +78,7 @@ function Navbar() {
                 </div>
                 <div className='cart'>
                     <img src='https://t3.ftcdn.net/jpg/03/14/85/06/360_F_314850659_2aQLerz30kWj78tqpaGSbzYD6sAUmuDf.jpg' />
-                    <Link className='nav-link' to='/cart'><p>Cart</p></Link>
+                    <Link className='nav-link' to='/cart'><p>Cart(0)</p></Link>
                 </div>
             </div>
             

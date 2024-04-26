@@ -3,6 +3,7 @@ import './productdetail.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Rating from '../components/Rating';
 function ProductDetail() {
   const [selectedVariant, setSelectedVariant] = useState('Default');
   const [quantity, setQuantity] = useState(1);
@@ -49,7 +50,7 @@ function ProductDetail() {
 
   return (
     <div className="product-detail-container">
-      <div className='nav-main'>
+      <div className='prod-nav-main'>
         <Navbar />
       </div>
       <div className="product-detail">
@@ -94,10 +95,17 @@ function ProductDetail() {
               onChange={handleQuantityChange}
             />
           </div>
+          <div className='Detail-rating'>
+              <label>Rating:</label>
+              <Rating rating={3} />
+          </div>
           <button className="add-to-cart">Add to Cart</button>
           <button className='add-to-cart Buy-now'>Buy Now</button>
+        
           <div className='delivery-detail'>
+           
             <h4>Speed Delivery</h4>
+            
 
           </div>
         </div>

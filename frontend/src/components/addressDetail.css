@@ -1,6 +1,10 @@
 .container {
     padding-top: 3rem;
     padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
   
   .row {

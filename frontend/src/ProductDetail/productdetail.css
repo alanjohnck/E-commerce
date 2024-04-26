@@ -7,10 +7,10 @@
     flex-direction: column;
     padding: 20px;
   }
-  .nav-main{
+  .prod-nav-main{
     display: block;
-    width: 100%;
-    margin: 1%;
+     width: 100%;
+   
   }
   .product-detail {
     display: flex;
@@ -141,4 +141,9 @@
     display: flex;
     margin-top: 2%;
    
+  }
+  .Detail-rating{
+    display: flex;
+    margin-top: 4%;
+    gap: 1rem;
   }
