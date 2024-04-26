@@ -15,12 +15,12 @@ function App() {
     <Router>
     <div className="App" >
       <Routes>
-          <Route path='/Home' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/cart' element={<CartPage />}/>
           <Route path='/viewproduct' element={<ViewProduct />} />
           <Route path='/product/:id' element={<ProductDetail />} />
           <Route path='/signup' element={<Register />} />
-          <Route path='/' element={<PaymentPage />} />
+          <Route path='/payment' element={<PaymentPage />} />
       </Routes>
     </div>
     </Router>
