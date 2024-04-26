@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import "./paymentpage.css"
-
+import Navbar from '../components/Navbar';
 function PaymentPage() {
   const [paymentOption, setPaymentOption] = useState('');
   const [showCardDetails, setShowCardDetails] = useState(false);
@@ -12,13 +12,11 @@ function PaymentPage() {
     const selectedOption = event.target.value;
     setPaymentOption(selectedOption);
 
-    // Check if UPI is selected
     if (selectedOption === "upi") {
       setShowCardDetails(false);
       setShowUpiDetails(true);
     } else {
       setShowUpiDetails(false);
-      // Handle other payment methods as before
       if (selectedOption === "credit_or_debit") {
         setShowCardDetails(true);
       } else {
@@ -28,6 +26,11 @@ function PaymentPage() {
   };
 
   return (
+
+  <div className='payment-container'>
+    <div className='payment-main'>
+          <Navbar />
+    </div>
     <div className="container">
       <div className="left-container">
         <div className="horizontal-container">
@@ -125,6 +128,7 @@ function PaymentPage() {
         </div>
       </div>
     </div>
+    </div> 
   );
 }
 
