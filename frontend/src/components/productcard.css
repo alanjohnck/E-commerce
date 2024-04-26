@@ -24,6 +24,14 @@
     
     overflow: hidden;
     object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s;
+
+}
+.product-top-section img:hover{
+    object-fit: cover;
+    overflow: hidden;
+    transform: scale(1.1);
 }
 .product-left{
     display: flex;
@@ -55,4 +63,11 @@
     align-items: baseline;
     width: 30%;
     color: green;
+}
+.state-location{
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none; 
+        color: inherit; 
 }

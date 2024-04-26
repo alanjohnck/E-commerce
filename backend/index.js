@@ -4,44 +4,13 @@ const bodyParser = require("body-parser");
 const pool = require("./database");
 const bcrypt = require("bcrypt");
 const app = express();
+const userAuthentication = require("./authenticationRoute");
+const productData = require("./productData");
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/',userAuthentication);
+app.use('/',productData);
 
-
-
-app.post("/createUser", async(req, res) => {
-    console.log(req.body);
-    const { email, password } = req.body;
-    const salt = await bcrypt.genSalt(5);
-    const hashedPassword = await bcrypt.hash(password, salt);
-   console.log(hashedPassword);
-    pool.query("INSERT INTO userInfo (email, passwordUser) VALUES ($1, $2)", [email,hashedPassword], (err, result) => {
-        try {
-            if (err) {
-                throw err;
-            }
-            res.send(result.rows); 
-        } catch (err) {
-            console.error('Error executing query:', err);
-            res.status(500).send('Error executing query');
-        }
-    });
-});
-
-
-app.get("/getProductData",async(req,res)=>{
-    pool.query("SELECT * FROM product_detail",(err,result)=>{
-        try {
-            if (err) {
-                throw err;
-            }
-            res.send(result.rows); 
-        } catch (err) {
-            console.error('Error executing query:', err);
-            res.status(500).send('Error executing query');
-        }
-    });
-})
 
 app.post("/addToCart",async(req,res)=>{
    
@@ -114,6 +83,26 @@ app.get("/getOfferDetails",async(req,res)=>{
         }
     });
 })
+//bug
+
+app.get("/getViewDetails", async (req, res) => {
+
+    const category = req.query; 
+    const sqlQuery = `SELECT * FROM product_detail WHERE category='${category}'`;
+
+    pool.query(sqlQuery, (err, result) => {
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows); 
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+
+});
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
     }

@@ -1,0 +1,144 @@
+.product-detail-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 95vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .nav-main{
+    display: block;
+    width: 100%;
+    margin: 1%;
+  }
+  .product-detail {
+    display: flex;
+    padding: 2%;
+    height: 70vh;
+    width: 90vw;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .main-image {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-image img {
+    margin: 1%;
+    width: 60%;
+    max-width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .product-info {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    margin-bottom: 20px;
+  }
+  
+  .product-variants {
+    margin-bottom: 10px;
+  }
+  
+  .variant-label {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .variant-select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .product-price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .quantity-label {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .quantity-input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .add-to-cart {
+    margin-top: 5%;
+    
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #ffbf00;
+  }
+  
+  .product-gallery {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+  
+  .product-gallery img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .product-reviews {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .product-reviews h3 {
+    font-size: 24px;
+  }
+  
+  .product-reviews p {
+    font-size: 16px;
+  }
+  
+  .Buy-now{
+    color: white;
+    background-color: green;
+    border-radius: 25px;
+    border: none;
+    margin-left: 5%;
+  }
+  .delivery-detail{
+    display: flex;
+    margin-top: 2%;
+   
+  }

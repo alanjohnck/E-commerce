@@ -1,12 +1,18 @@
 import React from 'react'
 import "../components/productcard.css"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 function ProductCard(props) {
     const handleAddToCart =async () => {
         await axios.post('http://localhost:8000/addToCart', props)
     }
   return (
+  
        <div className='product-box' id={props.product_id}>
+         <Link className='state-location' to={{
+        pathname: `/product/${props.product_id}`,
+        state: { product: props }
+      }}>
           <div className='product-top-section'>
               <img src={props.image}>
 
@@ -30,7 +36,9 @@ function ProductCard(props) {
              </div>
 
          </div>
+         </Link>
        </div> 
+     
   )
 }
 

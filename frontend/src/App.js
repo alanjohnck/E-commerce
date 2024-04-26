@@ -5,14 +5,22 @@ import axios from 'axios';
 import Home from './Home/Home';
 import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
 import CartPage from './CartPage/CartPage';
+import ViewProduct from './viewProducts/ViewProduct';
+import ProductDetail from './ProductDetail/ProductDetail';
+import Register from './CreateUserPage/Register';
+import PaymentPage from './PaymentPage/PaymentPage'
 function App() {
 
   return (
     <Router>
     <div className="App" >
       <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/Home' element={<Home />} />
           <Route path='/cart' element={<CartPage />}/>
+          <Route path='/viewproduct' element={<ViewProduct />} />
+          <Route path='/product/:id' element={<ProductDetail />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/' element={<PaymentPage />} />
       </Routes>
     </div>
     </Router>
