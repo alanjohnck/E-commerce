@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 import axios from 'axios'
 
 function CartPage() {
+  
 const[cartData,setCartData]=useState([])
 
     const getCartData = async () => {

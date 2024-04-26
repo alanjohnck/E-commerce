@@ -8,19 +8,21 @@ import CartPage from './CartPage/CartPage';
 import ViewProduct from './viewProducts/ViewProduct';
 import ProductDetail from './ProductDetail/ProductDetail';
 import Register from './CreateUserPage/Register';
+import AddressDetail from './components/AddressDetail';
 function App() {
 
   return (
-    <Router>
-    <div className="App" >
+   <Router>
+     <div className="App" >
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<CartPage />}/>
-          <Route path='/viewproduct' element={<ViewProduct />} />
+          <Route path='/viewproduct/:search' element={<ViewProduct />} />
           <Route path='/product/:id' element={<ProductDetail />} />
           <Route path='/signup' element={<Register />} />
+          <Route path='/address' element={<AddressDetail />} />
       </Routes>
-    </div>
+     </div>
     </Router>
   );
 }

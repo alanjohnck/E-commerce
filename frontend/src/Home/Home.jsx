@@ -234,9 +234,10 @@ const services = [
         })
         }   
  </div>
-  <div className='footer'>
-        <h1>Shopkart</h1>
-   </div>
+   <footer className="footer">
+        <p>© 2022 My Website</p>
+        <p>Contact information: <a href="mailto:shopcart@example.com">shopcart@gmail.com</a>.</p>
+      </footer>
 </div>
   )
 }

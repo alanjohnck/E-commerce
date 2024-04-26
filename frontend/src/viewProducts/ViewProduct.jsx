@@ -3,19 +3,20 @@ import "../viewProducts/viewproduct.css"
 import axios from 'axios'
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
+import { useParams } from 'react-router-dom';
 function ViewProduct() {
     const [productData, setProductData] = useState([]);
-    const [query, setQuery] = useState("fashion");
-
+    const {search} =useParams();
     useEffect(() => {
-      axios.get('http://localhost:8000/getViewDetails/', { params: { query: query } })
+      axios.get(`http://localhost:8000/getViewproduct/${search}`,)
         .then((response) => {
           setProductData(response.data);
+          console.log(response.data)
         })
         .catch((error) => {
           console.error(error);
         });
-    }, [query]);
+    }, []);
   return (
 <div className='viewproduct-outer'>
     <div className='viewproduct'>
