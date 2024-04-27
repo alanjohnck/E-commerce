@@ -5,7 +5,7 @@ function CartPage() {
   
 const[cartData,setCartData]=useState([])
 
-    const getCartData = async () => {
+  const getCartData = async () => {
         await axios.get('http://localhost:8000/getCartData')
           .then((response) => {
             setCartData(response.data);
@@ -17,8 +17,7 @@ const[cartData,setCartData]=useState([])
       useEffect(() => {
         getCartData();
       }, []);
-      
-    const removeFromCart = async(cart_id)=>{
+  const removeFromCart = async(cart_id)=>{
         await axios.delete('http://localhost:8000/removeFromCart',{data:{cart_id}})
             .then((res)=>{
                 console.log(res)

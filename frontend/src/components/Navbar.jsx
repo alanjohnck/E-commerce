@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../components/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 function Navbar() {
     const [username, setUsername] = useState('');
-    const [address, setAddress] = useState({ city: '', pincode: '' });
+    const [address, setAddress] = useState({} );
     const [search, setSearch] = useState('');
 
     const history = useNavigate();
@@ -19,7 +19,21 @@ function Navbar() {
         console.log(storedToken)
         if (storedUsername) {
             setUsername(storedUsername);
+            console.log(storedUsername);
+            axios.get(`http://localhost:8000/getAddress?username=${storedUsername}`)
+            .then(response => {
+                if (response.data.firstName === storedUsername) {
+                    setAddress(response.data);
+                    console.log(response.data)
+                } else {
+                    console.log('Username does not match with firstName in address table');
+                }
+            })
+            .catch(error => {
+                console.log('Error getting address:', error);
+            });
         }
+        
         // const storedAddress = JSON.parse(localStorage.getItem('address'));
         // if (storedAddress) {
         //   setAddress(storedAddress);
@@ -40,7 +54,7 @@ function Navbar() {
                 <h1 className='logo-title'>ShopCart</h1>
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>About</li>
-                <li className='nav-item'>Products</li>
+                <li className='nav-item'><Link className='link' to='/viewproduct/all'>Products</Link></li>
                 <li className='nav-item delivery'>
                 <div className='main-delivery'>
                      <h5><Link className='link' to="/address">Delivery to</Link></h5>
@@ -48,10 +62,13 @@ function Navbar() {
                      </img>
                 </div>
                 <div className='exact-detail'>
-                    <p>
-                    {address.city} {address.pincode}
-                   {/*  {city Name from the database} */}
-                    </p>
+                {address && address.state_name && address.pincode ? (
+        <p>
+            {address.state_name} {address.pincode}
+        </p>
+    ) : (
+        <p>Loading...</p>
+    )}
                 </div>
                 </li>
             </ul>

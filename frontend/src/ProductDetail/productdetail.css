@@ -136,6 +136,7 @@
     background-color: green;
     border-radius: 25px;
     border: none;
+    cursor: pointer;
     margin-left: 5%;
   }
   .delivery-detail{
@@ -148,4 +149,8 @@
     display: flex;
     margin-top: 4%;
     gap: 1rem;
+  }
+  .buy-link{
+    text-decoration: none;
+    color: inherit;
   }

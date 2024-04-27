@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+ 
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -14,29 +15,55 @@
 .right-container {
   flex: 1;
   min-width: 300px;
+  height: 100vh;
   padding: 20px;
 }
 
 .left-container {
-  border-right: 1px solid hwb(240 8% 91%);
+  border: 1px dotted hwb(240 8% 91%);
+  border-radius: 5px;
   margin-right: 20px;
 }
-
+.right-container{
+  border: 1px dotted hwb(240 8% 91%);
+  border-radius: 5px;
+  padding-right: 2%;
+}
 
 .horizontal-container,
 .vertical-container {
   margin-bottom: 20px;
 }
+.horizontal-container{
+  border:green 1px dotted;
+  border-radius: 10px;
+  padding: 2%;
+}
 
 .item {
   display: flex;
+  margin: 1%;
+  padding: 5%;
   align-items: center;
+  gap: 5rem;
+  
+  justify-content: flex-start;
 }
+.item-details-left{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.item-details-right{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
+}
 .item img {
   width: 100px;
   height: auto;
-  margin-right: 20px;
+  margin:2%;
 }
 
 .item-details p {
@@ -49,7 +76,10 @@
 }
 
 .delivery-group {
-  margin-bottom: 10px;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .delivery-group p {
@@ -57,6 +87,11 @@
 }
 
 .delivery-info .edit-button {
+  background-color: #298adf;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
   margin-left: auto; /* Align to the right */
   padding: 5px 10px;
 }
@@ -103,12 +138,23 @@
   border: 2px solid transparent;
   cursor: pointer;
 }
-
+.right-select{
+  margin-top: 2%;
+  padding: 2%;
+  font-weight: bold;
+  border-radius: 25px;
+}
 .payment-button:focus,
 .payment-button:active {
   border-color: #298adf;
 }
-
+.card-buttons{
+  display: flex;
+  gap: 1rem;
+  
+  align-items: flex-start;
+  margin: 2% 0 0 0;
+}
 .amazon-button {
   background-image: url('./Img/amazon.png');
   background-size: 45px 25px; 
@@ -214,11 +260,12 @@
 }
 
 .total-button .green-button {
+
   padding: 20px 100px;
   background-color: green;
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   cursor: pointer;
 }
 
