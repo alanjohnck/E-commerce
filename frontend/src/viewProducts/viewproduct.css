@@ -1,15 +1,30 @@
-.viewproduct{
+
+.nav-view{
+    display: block;
+    width: 90%;
+}
+hr{
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 90vw;
-  
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray
 }
 .viewproduct-outer{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: .5rem;
+}
+
+
+.viewproduct{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 3rem;
+    height: 100vh;
+    width: 90vw;
+  
 }

@@ -3,23 +3,30 @@ import "../viewProducts/viewproduct.css"
 import axios from 'axios'
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard';
+import { useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 function ViewProduct() {
     const [productData, setProductData] = useState([]);
-    const [query, setQuery] = useState("fashion");
-
+    const {search} = useParams();
     useEffect(() => {
-      axios.get('http://localhost:8000/getViewDetails/', { params: { query: query } })
+      axios.get(`http://localhost:8000/getViewproduct/${search}`,)
         .then((response) => {
           setProductData(response.data);
+          console.log(response.data)
         })
         .catch((error) => {
           console.error(error);
         });
-    }, [query]);
+    }, [search]);
   return (
 <div className='viewproduct-outer'>
+    <div className='nav-view'>
+          <Navbar />
+    </div>
+    <div>
+         <hr />
+    </div>
     <div className='viewproduct'>
-   
             {productData.map((product) => (
                 <ProductCard
                      key={product.product_id}
@@ -30,8 +37,6 @@ function ViewProduct() {
                      price={product.product_price}
                  />
             ))}
-          
-  
     </div>
 </div>
   )

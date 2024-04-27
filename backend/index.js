@@ -8,6 +8,7 @@ const userAuthentication = require("./authenticationRoute");
 const productData = require("./productData");
 app.use(cors());
 app.use(bodyParser.json());
+
 app.use('/',userAuthentication);
 app.use('/',productData);
 
@@ -85,12 +86,9 @@ app.get("/getOfferDetails",async(req,res)=>{
 })
 //bug
 
-app.get("/getViewDetails", async (req, res) => {
-
-    const category = req.query; 
-    const sqlQuery = `SELECT * FROM product_detail WHERE category='${category}'`;
-
-    pool.query(sqlQuery, (err, result) => {
+app.get("/getViewproduct/:search", async (req, res) => {
+    const {search} = req.params; 
+    pool.query('SELECT * FROM product_detail WHERE product_name LIKE $1',[`%${search}%`], (err, result) => {
         try {
             if (err) {
                 throw err;

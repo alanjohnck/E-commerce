@@ -72,7 +72,7 @@ function PaymentPage() {
           </div>
           <h3>Payment Details</h3>
           <div className="payment-options">
-            <select value={paymentOption} onChange={handlePaymentOptionChange}>
+            <select className='right-select' value={paymentOption} onChange={handlePaymentOptionChange}>
               <option value="">Select Payment Method</option>
               <option value="cash_on_delivery">Cash on Delivery</option>
               <option value="credit_or_debit">Credit or Debit</option>
