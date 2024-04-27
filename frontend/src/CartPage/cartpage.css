@@ -1,3 +1,83 @@
-h1{
-    color:red;
-}
+/* CartPage.css */
+
+/* Main container */
+.cart-page {
+    padding: 20px;
+  }
+  
+  /* "My Cart" heading */
+  .cart-heading {
+    margin-bottom: 20px;
+    color: #004500; /* Dark green color */
+  }
+  
+  /* Cart items container */
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .image-name{
+    display: flexbox;
+  }
+  
+  /* Individual cart item */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  }
+  
+  /* Item image */
+  .item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  /* Item details */
+
+  
+  /* Item name */
+  .item-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Item info */
+  .item-info {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  /* Delete button */
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Empty cart message */
+  .empty-cart-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
