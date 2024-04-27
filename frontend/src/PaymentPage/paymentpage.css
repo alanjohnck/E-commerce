@@ -1,0 +1,244 @@
+/* paymentpage.css */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px; /* Reduced padding to 20px */
+}
+
+.left-container,
+.right-container {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.left-container {
+  border-right: 1px solid hwb(240 8% 91%);
+  margin-right: 20px;
+}
+
+
+.horizontal-container,
+.vertical-container {
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.item-details p {
+  margin: 5px 0;
+}
+
+.delivery-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.delivery-group {
+  margin-bottom: 10px;
+}
+
+.delivery-group p {
+  margin: 5px 0;
+}
+
+.delivery-info .edit-button {
+  margin-left: auto; /* Align to the right */
+  padding: 5px 10px;
+}
+
+.coupon-section {
+  margin-bottom: 20px;
+}
+
+.coupon-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.coupon-section input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.apply-button {
+  padding: 8px 16px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.apply-button:hover {
+  background-color: darkgreen;
+}
+
+.payment-options {
+  margin-bottom: 20px;
+}
+
+.payment-button {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.payment-button:focus,
+.payment-button:active {
+  border-color: #298adf;
+}
+
+.amazon-button {
+  background-image: url('./Img/amazon.png');
+  background-size: 45px 25px; 
+  background-repeat: no-repeat;
+}
+
+.mastercard-button {
+  background-image: url('./Img/mastercard.png');
+  background-size: 47px 25px; 
+  background-repeat: no-repeat;
+}
+
+.visa-button {
+  background-image: url('./Img/Visa.png');
+  background-size: 45px 26px;
+  background-repeat: no-repeat;
+}
+
+.card-details {
+  margin-top: 20px;
+}
+
+.card-details h4 {
+  margin-bottom: 5px;
+}
+
+.card-details input[type="text"] {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.card-details .card-number-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-details .expiry-cvc-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.card-details .expiry-container,
+.card-details .cvc-container {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.card-details .expiry-container h4,
+.card-details .cvc-container h4 {
+  margin-bottom: 5px;
+}
+
+.card-details .expiry-container input[type="text"],
+.card-details .cvc-container input[type="text"] {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.upi-details {
+  margin-top: 20px;
+}
+
+.upi-details h4 {
+  margin-bottom: 5px;
+}
+
+.upi-details input[type="text"] {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.summary-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.summary-details p {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-details .total {
+  margin-top: 20px;
+}
+
+.total-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.total-button .green-button {
+  padding: 20px 100px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.total-button .green-button:hover {
+  background-color: darkgreen;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-container,
+  .right-container {
+    flex: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .left-container {
+    border-right: none;
+  }
+}

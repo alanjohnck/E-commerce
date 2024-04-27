@@ -10,6 +10,7 @@ import ProductDetail from './ProductDetail/ProductDetail';
 import Register from './CreateUserPage/Register';
 import AddressDetail from './components/AddressDetail';
 import Rating from './components/Rating';
+import PaymentPage from './PaymentPage/PaymentPage'
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/signup' element={<Register />} />
           <Route path='/address' element={<AddressDetail />} />
           <Route path='/star' element={<Rating rating={3.3}  />} />
+          <Route path='/product/:id/payment' element={<PaymentPage />} />
       </Routes>
      </div>
     </Router>
