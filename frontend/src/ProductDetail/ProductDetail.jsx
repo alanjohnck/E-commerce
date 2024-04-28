@@ -22,6 +22,7 @@ function ProductDetail() {
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
   };
+  const rotations = ['0deg', '90deg', '180deg'];
 
   const productDetail = {
     title: 'Wireless Over-Ear Headphones',
@@ -62,16 +63,16 @@ function ProductDetail() {
         <div className="main-image">
           <img src={product.image} alt="Main Product" />
           <div className="product-gallery">
-        {productDetail.images &&
-          productDetail.images.map((image, index) => (
-            <img key={index} src={image} alt={`Product ${index + 1}`} />
-          ))}
-      </div>
+    {rotations.map((rotation, index) => (
+        <img key={index} src={product.image} style={{ transform: `rotate(${rotation})` }} alt={`Product ${index + 1}`} />
+    ))}
+          </div>
         </div>
         <div className="product-info">
           <h2 className="product-title">{product.product_name}</h2>
           <p className="product-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ultricies dolor. Sed eleifend velit in orci pellentesque, id bibendum libero congue. Fusce euismod hendrerit magna. Nulla facilisi. Cras ac magna auctor, convallis mauris vel, consequat urna. Pellentesque habitant morbi tristique senectus et netus et
+         
+          {product.product_desc}
 
           </p>
           <div className="product-variants">

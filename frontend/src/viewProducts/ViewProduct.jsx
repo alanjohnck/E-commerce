@@ -34,8 +34,9 @@ function ViewProduct() {
                      product_id={product.id}
                      image={product.image}
                      product_name={product.product_name}
-                     product_material={product.product_material}
+                     product_desc={product.product_desc}
                      price={product.product_price}
+                     rating ={product.rating}
                  />
             ))}
     </div>

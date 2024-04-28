@@ -25,14 +25,17 @@ ALTER TABLE IF EXISTS public.offers OWNER to postgres;
 
 -- Table: public.product_detail
  -- DROP TABLE IF EXISTS public.product_detail;
+-- Table: public.product_detail
+ -- DROP TABLE IF EXISTS public.product_detail;
 
-CREATE TABLE IF NOT EXISTS public.product_detail (id integer NOT NULL DEFAULT nextval('product_detail_id_seq'::regclass),
-                                                                              image character varying(255) COLLATE pg_catalog."default",
-                                                                                                                   product_name character varying(255) COLLATE pg_catalog."default",
-                                                                                                                                                               product_material character varying(255) COLLATE pg_catalog."default",
-                                                                                                                                                                                                               product_price numeric(10,2),
-                                                                                                                                                                                                                             category character varying(20) COLLATE pg_catalog."default",
-                                                                                                                                                                                                                                                                    CONSTRAINT product_detail_pkey PRIMARY KEY (id)) TABLESPACE pg_default;
+CREATE TABLE IF NOT EXISTS public.product_detail ( id integer NOT NULL DEFAULT nextval('product_id_seq'::regclass),
+                                                                               product_name character varying(100) COLLATE pg_catalog."default",
+                                                                                                                           product_desc text COLLATE pg_catalog."default",
+                                                                                                                                                     items_left integer, image text COLLATE pg_catalog."default",
+                                                                                                                                                                                            product_price numeric(10,2),
+                                                                                                                                                                                                          rating numeric(2,1),
+                                                                                                                                                                                                                 category character varying(50) COLLATE pg_catalog."default",
+                                                                                                                                                                                                                                                        CONSTRAINT product_pkey PRIMARY KEY (id)) TABLESPACE pg_default;
 
 
 ALTER TABLE IF EXISTS public.product_detail OWNER to postgres;

@@ -15,6 +15,8 @@ function Home() {
 
     const handleClick = (category) => {
       setCategory(category);
+
+      
     }
 useEffect(()=>{
     axios.get('http://localhost:8000/getProductData')
@@ -136,14 +138,15 @@ const services = [
    
  <div className='product-outer-container'>
    <div className='product-details'>
-   {productData.map((product)=>{
+   {productData.slice(0, 8).map((product)=>{
          return(
               <ProductCard 
               product_id={product.id}
               image={product.image}
               product_name={product.product_name}
-              product_material={product.product_material}
+              product_desc={product.product_desc}
               price={product.product_price}
+              rating={product.rating}
               />
          )
    })

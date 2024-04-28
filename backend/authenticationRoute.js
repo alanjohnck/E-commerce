@@ -6,7 +6,6 @@ const pool = require('./database');
 
 router.post('/signup',async(req,res)=>{
     const {username, lastName, email, password, confirmPassword } = req.body;
-    console.log(req.body)
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match" });
     }

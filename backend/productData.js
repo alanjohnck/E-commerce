@@ -30,5 +30,18 @@ router.get("/getProductData/:id", async (req, res) => {
         }
     });
 });
-
+router.get("/getUserAddress", async (req, res) => {
+    const username = req.query.username;
+    pool.query("SELECT * FROM useraddress WHERE firstname = $1 LIMIT 1", [username], (err, result) => {
+        try {
+            if (err) {
+                throw err;
+            }
+            res.send(result.rows[0]);
+        } catch (err) {
+            console.error('Error executing query:', err);
+            res.status(500).send('Error executing query');
+        }
+    });
+});
 module.exports = router;

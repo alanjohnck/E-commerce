@@ -29,11 +29,7 @@ useEffect(() => {
             });
     }
 }, []);
-        // const storedAddress = JSON.parse(localStorage.getItem('address'));
-        // if (storedAddress) {
-        //   setAddress(storedAddress);
-          
-        // }
+   
 
 
     const handleClick = () => {
