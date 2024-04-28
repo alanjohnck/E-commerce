@@ -144,8 +144,21 @@ app.get("/getViewproduct/:search", async (req, res) => {
                 res.status(500).send('Error executing query');
             }
         });
+     }else
+     if(search=='fashion' || search=='furniture' || search=='books' || search=='tech' ||search=='travel'){
+        pool.query('SELECT * FROM product_detail WHERE category = $1',[search], (err, result) => {
+            try {
+                if (err) {
+                    throw err;
+                }
+                res.send(result.rows); 
+                return ;
+            } catch (err) {
+                console.error('Error executing query:', err);
+                res.status(500).send('Error executing query');
+            }
+        });
      }else{
-    
     pool.query('SELECT * FROM product_detail WHERE product_name LIKE $1',[`%${search}%`],async (err, result) => {
         try {
             if (err) {

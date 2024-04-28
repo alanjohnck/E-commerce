@@ -25,6 +25,7 @@ function App() {
           <Route path='/address' element={<AddressDetail />} />
           <Route path='product/:id/payment' element={<PaymentPage />} />
           <Route path='/viewproduct/:all' element={<ViewProduct />} />
+          <Route path="/viewproduct/:category" component={ViewProduct} />
       </Routes>
      </div>
     </Router>

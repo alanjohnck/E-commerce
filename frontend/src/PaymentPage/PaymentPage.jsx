@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./paymentpage.css"
 import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function PaymentPage() {
@@ -12,6 +12,12 @@ function PaymentPage() {
   const [userAddress, setUserAddress] = useState({});
   const { id }  = useParams();
   const username = localStorage.getItem('username');
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+
+  const handlePayButtonClick = () => {
+    // Simulating payment success
+    setPaymentSuccess(true);
+  };
 
   useEffect(() => {
     // Fetch product data
@@ -139,17 +145,27 @@ function PaymentPage() {
                 <input type="text" placeholder="Enter UPI ID" />
               </div>
             )}
+            {paymentSuccess && (
+            <div className="payment-success">
+              <p>Your order has been accepted.</p>
+              <p>Transaction ID: XYZ123</p>
+              <button  className="continue-shopping"><Link className="link"to='/'>Continue Shopping</Link></button>
+            </div>
+          )}
+          {!paymentSuccess && (
             <div className="summary-details">
               <br></br>
-              <p><b>Sub Total:</b> ${productData.product_price}</p>
-              <p><b>Tax(10%):</b> ${(productData.product_price * 0.1).toFixed(2)}</p>
+              <p><b>Sub Total:</b> $549.00</p>
+              <p><b>Tax(10%):</b> $54.90</p>
               <p><b>Coupon Discount:</b> -$20.00</p>
               <p><b>Shipping Cost:</b> $10.00</p>
-              <p><b>Total:</b> ${(productData.product_price * 1.1 + 10).toFixed(2)}</p>
+              <p><b>Total:</b> $593.90</p>
               <div className="total-button">
-                <button className="green-button">Pay ${(productData.product_price * 1.1 + 10).toFixed(2)}</button>
+                <button className="green-button" onClick={handlePayButtonClick}>Pay $593.90</button>
               </div>
             </div>
+          )}
+
           </div>
         </div>
       </div>
