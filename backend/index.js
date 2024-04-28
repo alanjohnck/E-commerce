@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use('/',userAuthentication);
 app.use('/',productData);
 
-app.post("/addToCart",async(req,res)=>{   
-    const {product_id,product_name,product_material,price}=req.body;
+app.post("/addToCart",async(req,res)=>{
+    const {product_id,image,product_name,product_material,price}=req.body;
     pool.query("SELECT * FROM cart WHERE product_id=$1",[product_id],(err,result)=>{
         try {
             if (err) {
@@ -22,7 +22,7 @@ app.post("/addToCart",async(req,res)=>{
             if(result.rows.length>0){
                 res.send("Product already added to cart")
             }else{
-                pool.query("INSERT INTO cart (product_name,product_material,product_price,product_id) VALUES ($1, $2, $3,$4)", [product_name,product_material,price,product_id], (err, result) => {
+                pool.query("INSERT INTO cart (product_image,product_name,product_material,product_price,product_id) VALUES ($1, $2, $3,$4,$5)", [image,product_name,product_material,price,product_id], (err, result) => {
                     try {
                         if (err) {
                             throw err;

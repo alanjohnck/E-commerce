@@ -3,9 +3,14 @@ import "../components/productcard.css"
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Rating from './Rating'
+import { useNavigate } from 'react-router-dom'
 function ProductCard(props) {
-    const handleAddToCart =async () => {
+        const navigate = useNavigate()
+    const handleAddToCart =async (event) => {
+        event.stopPropagation();
+        event.preventDefault()
         await axios.post('http://localhost:8000/addToCart', props)
+        navigate('/')
     }
 return (
 
