@@ -3,15 +3,17 @@
 import React, { useState } from 'react'
 import "./paymentpage.css"
 import Navbar from '../components/Navbar';
+import { useParams } from 'react-router-dom';
 function PaymentPage() {
   const [paymentOption, setPaymentOption] = useState('');
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showUpiDetails, setShowUpiDetails] = useState(false);
-
+  const {id}  = useParams();
+  console.log(id)
+ 
   const handlePaymentOptionChange = (event) => {
     const selectedOption = event.target.value;
     setPaymentOption(selectedOption);
-
     if (selectedOption === "upi") {
       setShowCardDetails(false);
       setShowUpiDetails(true);
@@ -37,13 +39,15 @@ function PaymentPage() {
           <h2>Review Item And Shipping</h2>
           <div className="item">
             <img src="image.jpg" alt="Image" />
-            <div className="item-details">
-              <br></br>
+             <div className="item-details-left">
+             
               <p><b>Name :</b> Airpods Max</p>
               <p><b>Color :</b> Pink</p>
+              </div>
+              <div className='item-details-right'>
               <p><b>Price :</b> $549.00</p>
               <p><b>Quantity :</b> 1</p>
-            </div>
+              </div>
           </div>
         </div>
         <div className="horizontal-container">
@@ -89,21 +93,21 @@ function PaymentPage() {
           {showCardDetails && (
             <div className="card-details">
               <h4>Email*</h4>
-              <input type="text" placeholder="Enter your email" />
+              <input type="text" placeholder="Enter your email"  required/>
               <h4>Card Holder Name*</h4>
-              <input type="text" placeholder="Enter card holder's name" />
+              <input type="text" placeholder="Enter card holder's name" required />
               <div className="card-number-container">
                 <h4>Card Number*</h4>
-                <input type="text" placeholder="Enter card number" />
+                <input type="text" placeholder="Enter card number" required />
               </div>
               <div className="expiry-cvc-container">
                 <div className="expiry-container">
                   <h4>Expiry*</h4>
-                  <input type="text" placeholder="MM/YY" />
+                  <input type="text" placeholder="MM/YY" required/>
                 </div>
                 <div className="cvc-container">
                   <h4>CVV*</h4>
-                  <input type="text" placeholder="CVV" />
+                  <input type="text" placeholder="CVV" required/>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './cartpage.css'; // Import the CSS file
+import './cartpage.css';
 
 
 import Rating from '../components/Rating';

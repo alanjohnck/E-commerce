@@ -136,6 +136,7 @@
     background-color: green;
     border-radius: 25px;
     border: none;
+    cursor: pointer;
     margin-left: 5%;
   }
   .delivery-detail{

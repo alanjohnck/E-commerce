@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../components/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 function Navbar() {
     const [username, setUsername] = useState('');
-    const [address, setAddress] = useState({ city: '', pincode: '' });
+    const [address, setAddress] = useState({pincode:"",state_name:""});
     const [search, setSearch] = useState('');
 
     const history = useNavigate();
@@ -13,19 +13,28 @@ function Navbar() {
     event.preventDefault();
     history(`/viewproduct/${search}`);
    };
-    useEffect(() => {
-        const storedUsername = localStorage.getItem('username');
-        const storedToken = localStorage.getItem('token');
-        console.log(storedToken)
-        if (storedUsername) {
-            setUsername(storedUsername);
-        }
+
+useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    const storedToken = localStorage.getItem('token');
+    if (storedUsername) {
+        setUsername(storedUsername);
+        axios.get(`http://localhost:8000/getAddress?username=${storedUsername}`)
+            .then(response => {
+                    const firstAddress = response.data[0];
+                    setAddress(firstAddress);
+            })
+            .catch(error => {
+                console.log('Error getting address:', error);
+            });
+    }
+}, []);
         // const storedAddress = JSON.parse(localStorage.getItem('address'));
         // if (storedAddress) {
         //   setAddress(storedAddress);
           
         // }
-    }, []);
+
 
     const handleClick = () => {
         if (username) {
@@ -40,7 +49,7 @@ function Navbar() {
                 <h1 className='logo-title'>ShopCart</h1>
                 <li className='nav-item'>Home</li>
                 <li className='nav-item'>About</li>
-                <li className='nav-item'>Products</li>
+                <li className='nav-item'><Link className='link' to='/viewproduct/all'>Products</Link></li>
                 <li className='nav-item delivery'>
                 <div className='main-delivery'>
                      <h5><Link className='link' to="/address">Delivery to</Link></h5>
@@ -48,10 +57,13 @@ function Navbar() {
                      </img>
                 </div>
                 <div className='exact-detail'>
-                    <p>
-                    {address.city} {address.pincode}
-                   {/*  {city Name from the database} */}
-                    </p>
+                {address && address.state_name && address.pincode ? (
+        <p>
+            {address.state_name}, {address.pincode}
+        </p>
+    ) : (
+        <p>Loading...</p>
+    )}
                 </div>
                 </li>
             </ul>

@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../components/addressDetail.css';
+import axios from 'axios';
 
 function AddressDetail() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [addressData, setAddressData] = useState({
-    firstName: '',
-    lastName: '',
-    address: '',
-    state: '',
+    firstname: '',
+    lastname: '',
+    address_name: '',
+    state_name: '',
     district: '',
-    zip: '',
+    pincode: '',
+    phone_number: '',
     email: ''
   });
+
   const handleChange = (e) => {
     setAddressData({ ...addressData, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = () => {
-   /// localStorage.setItem('address', JSON.stringify(addressData));
-   //connection to database
-    navigate('/')
+    axios.post('http://localhost:8000/addAddress', addressData)
+      .then((response) => {
+        console.log(response);  
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    navigate('/');
   };
 
   return (
@@ -66,42 +75,46 @@ function AddressDetail() {
                   <div className="row">
                     <div className="col-md-6 mb-4">
                       <div data-mdb-input-init className="form-outline">
-                        <input type="text" id="form3Example1m" className="form-control form-control-lg" onChange={handleChange} />
-                        <label className="form-label" htmlFor="form3Example1m">First name</label>
+                        <input type="text" id="firstname" className="form-control form-control-lg" onChange={handleChange} />
+                        <label className="form-label" >First name</label>
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
                       <div data-mdb-input-init className="form-outline">
-                        <input type="text" id="form3Example1n" className="form-control form-control-lg"  onChange={handleChange} />
-                        <label className="form-label" htmlFor="form3Example1n">Last name</label>
+                        <input type="text" id="lastname" className="form-control form-control-lg"  onChange={handleChange} />
+                        <label className="form-label" >Last name</label>
                       </div>
                     </div>
                   </div>
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="text" id="form3Example8" className="form-control form-control-lg"  onChange={handleChange} />
-                    <label className="form-label" htmlFor="form3Example8">Address</label>
+                    <input type="text" id="address_name" className="form-control form-control-lg"  onChange={handleChange} />
+                    <label className="form-label">Address</label>
                   </div>
                   <div className="row">
                     <div className="col-md-6 mb-4">
-                     <div data-mdb-input-init className="form-outline">
-                        <input type="text" id="form3Example1m" className="form-control form-control-lg"  onChange={handleChange} />
-                        <label className="form-label" htmlFor="form3Example1m">State</label>
+                      <div data-mdb-input-init className="form-outline">
+                        <input type="text" id="state_name" className="form-control form-control-lg"  onChange={handleChange} />
+                        <label className="form-label">State</label>
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
-                     <div data-mdb-input-init className="form-outline">
-                        <input type="text" id="form3Example1m" className="form-control form-control-lg"  onChange={handleChange} />
-                        <label className="form-label" htmlFor="form3Example1m">District</label>
+                      <div data-mdb-input-init className="form-outline">
+                        <input type="text" id="district" className="form-control form-control-lg"  onChange={handleChange} />
+                        <label className="form-label">District</label>
                       </div>
                     </div>
                   </div>
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="text" id="form3Example3" className="form-control form-control-lg"  onChange={handleChange} />
-                    <label className="form-label" htmlFor="form3Example3">Zip</label>
+                    <input type="text" id="pincode" className="form-control form-control-lg"  onChange={handleChange} />
+                    <label className="form-label">Zip</label>
                   </div>
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="text" id="form3Example2" className="form-control form-control-lg"   onChange={handleChange}/>
-                    <label className="form-label" htmlFor="form3Example2">Email</label>
+                    <input type="text" id="phone_number" className="form-control form-control-lg"  onChange={handleChange} />
+                    <label className="form-label" >Phone Number</label>
+                  </div>
+                  <div data-mdb-input-init className="form-outline mb-4">
+                    <input type="text" id="email" className="form-control form-control-lg"  onChange={handleChange} />
+                    <label className="form-label" >Email</label>
                   </div>
                   <div className="d-flex justify-content-end pt-3">
                     <button

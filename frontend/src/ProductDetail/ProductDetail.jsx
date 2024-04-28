@@ -12,6 +12,7 @@ function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  
   const [reviews, setReviews] = useState([
     { id: 1, content: 'Great product!', author: 'User1' },
     { id: 2, content: 'I love it!', author: 'User2' },
@@ -41,6 +42,7 @@ function ProductDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+      
         const response = await axios.get(`http://localhost:8000/getProductData/${id}`);
         setProduct(response.data);
       } catch (error) {
@@ -50,7 +52,7 @@ function ProductDetail() {
 
     fetchData();
   }, [id]);
-
+ 
   return (
     <div className="product-detail-container">
       <div className='prod-nav-main'>
@@ -103,7 +105,12 @@ function ProductDetail() {
               <Rating rating={3} />
           </div>
           <button className="add-to-cart">Add to Cart</button>
-          <button className='add-to-cart Buy-now'><Link className='buy-link' to='/product/:id/payment'>Buy Now</Link></button>
+          <button className='add-to-cart Buy-now'><Link className='buy-link' to={
+            {
+              pathname: `/product/${id}/payment`
+  
+            }
+          }>Buy Now</Link></button>
         
           <div className='delivery-detail'>
            

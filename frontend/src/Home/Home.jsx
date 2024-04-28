@@ -129,7 +129,7 @@ const services = [
                <button>Buy</button>
             </div>
             <div className='right-part-img'>
-                <img src='/images/image-removebg-preview.png' alt='ad-image'></img>
+                <img src='https://file.removal.ai/preview/f957a600-6681-4de9-b7c6-8987e59786ff-image.png' alt='ad-image'></img>
             </div>
         </div> 
    </div>

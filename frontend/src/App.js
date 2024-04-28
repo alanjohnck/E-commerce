@@ -23,8 +23,8 @@ function App() {
           <Route path='/product/:id' element={<ProductDetail />} />
           <Route path='/signup' element={<Register />} />
           <Route path='/address' element={<AddressDetail />} />
-          <Route path='/star' element={<Rating rating={3.3}  />} />
-          <Route path='/product/:id/payment' element={<PaymentPage />} />
+          <Route path='product/:id/payment' element={<PaymentPage />} />
+          <Route path='/viewproduct/:all' element={<ViewProduct />} />
       </Routes>
      </div>
     </Router>
