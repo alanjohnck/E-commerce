@@ -20,7 +20,12 @@
   .image-name{
     display: flexbox;
   }
-  
+  .item-rating
+  {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
   /* Individual cart item */
   .cart-item {
     display: flex;

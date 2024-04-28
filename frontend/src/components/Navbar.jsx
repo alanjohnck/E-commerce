@@ -78,7 +78,7 @@ function Navbar() {
                 </div>
                 <div className='cart'>
                     <img src='https://t3.ftcdn.net/jpg/03/14/85/06/360_F_314850659_2aQLerz30kWj78tqpaGSbzYD6sAUmuDf.jpg' />
-                    <Link className='nav-link' to='/cart'><p>Cart(0)</p></Link>
+                    <Link className='nav-link' to='/cart'><p>Cart</p></Link>
                 </div>
             </div>
             
