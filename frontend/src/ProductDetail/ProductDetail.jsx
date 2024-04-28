@@ -82,8 +82,8 @@ function ProductDetail() {
               value={selectedVariant}
               onChange={(e) => handleVariantChange(e.target.value)}
             >
-              {product.variants &&
-                product.variants.map((variant, index) => (
+              {productDetail.variants &&
+                productDetail.variants.map((variant, index) => (
                   <option key={index} value={variant}>
                     {variant}
                   </option>

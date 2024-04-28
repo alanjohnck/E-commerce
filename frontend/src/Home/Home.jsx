@@ -16,7 +16,7 @@ function Home() {
     const handleClick = (category) => {
       setCategory(category);
 
-      
+
     }
 useEffect(()=>{
     axios.get('http://localhost:8000/getProductData')
@@ -161,6 +161,7 @@ const services = [
        </div>
        <div className='product-section-box'>
           <div className='section-box' onClick={() => handleClick('furniture')}>
+           
                   <h2 className='section-box-header'>Furniture</h2>
                   <img src='https://assets-global.website-files.com/63e857eaeaf853471d5335ff/63e8c4e570738029a725e686_Furniture-min.png'>
                   </img>

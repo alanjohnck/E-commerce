@@ -58,7 +58,7 @@ useEffect(() => {
             {address.state_name}, {address.pincode}
         </p>
     ) : (
-        <p>Loading...</p>
+        <p>Add your Address</p>
     )}
                 </div>
                 </li>
