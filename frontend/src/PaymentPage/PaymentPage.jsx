@@ -10,7 +10,7 @@ function PaymentPage() {
   const [showUpiDetails, setShowUpiDetails] = useState(false);
   const {id}  = useParams();
   console.log(id)
-
+ 
   const handlePaymentOptionChange = (event) => {
     const selectedOption = event.target.value;
     setPaymentOption(selectedOption);

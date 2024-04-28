@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function Navbar() {
     const [username, setUsername] = useState('');
-    const [address, setAddress] = useState({} );
+    const [address, setAddress] = useState({pincode:"",state_name:""});
     const [search, setSearch] = useState('');
 
     const history = useNavigate();
@@ -13,33 +13,28 @@ function Navbar() {
     event.preventDefault();
     history(`/viewproduct/${search}`);
    };
-    useEffect(() => {
-        const storedUsername = localStorage.getItem('username');
-        const storedToken = localStorage.getItem('token');
-        console.log(storedToken)
-        if (storedUsername) {
-            setUsername(storedUsername);
-            console.log(storedUsername);
-            axios.get(`http://localhost:8000/getAddress?username=${storedUsername}`)
+
+useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    const storedToken = localStorage.getItem('token');
+    if (storedUsername) {
+        setUsername(storedUsername);
+        axios.get(`http://localhost:8000/getAddress?username=${storedUsername}`)
             .then(response => {
-                if (response.data.firstName === storedUsername) {
-                    setAddress(response.data);
-                    console.log(response.data)
-                } else {
-                    console.log('Username does not match with firstName in address table');
-                }
+                    const firstAddress = response.data[0];
+                    setAddress(firstAddress);
             })
             .catch(error => {
                 console.log('Error getting address:', error);
             });
-        }
-        
+    }
+}, []);
         // const storedAddress = JSON.parse(localStorage.getItem('address'));
         // if (storedAddress) {
         //   setAddress(storedAddress);
           
         // }
-    }, []);
+
 
     const handleClick = () => {
         if (username) {
@@ -64,7 +59,7 @@ function Navbar() {
                 <div className='exact-detail'>
                 {address && address.state_name && address.pincode ? (
         <p>
-            {address.state_name} {address.pincode}
+            {address.state_name}, {address.pincode}
         </p>
     ) : (
         <p>Loading...</p>
