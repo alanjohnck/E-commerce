@@ -101,6 +101,8 @@ app.get('/getUser',async(req,res)=>{
     });
 
 })
+
+
 app.get('/getAddress',async(req,res)=>{
     const username = req.query.username;
     pool.query('SELECT * FROM useraddress WHERE firstName = $1', [username],(err,result)=>{
@@ -129,6 +131,8 @@ app.post("/addAddress", async (req, res) => {
         }
     });
 });
+
+
 app.get("/getViewproduct/:search", async (req, res) => {
     const {search} = req.params; 
     if(search=='all'){
@@ -144,8 +148,21 @@ app.get("/getViewproduct/:search", async (req, res) => {
                 res.status(500).send('Error executing query');
             }
         });
+     }else
+     if(search=='fashion' || search=='furniture' || search=='books' || search=='tech' ||search=='travel'){
+        pool.query('SELECT * FROM product_detail WHERE category = $1',[search], (err, result) => {
+            try {
+                if (err) {
+                    throw err;
+                }
+                res.send(result.rows); 
+                return ;
+            } catch (err) {
+                console.error('Error executing query:', err);
+                res.status(500).send('Error executing query');
+            }
+        });
      }else{
-    
     pool.query('SELECT * FROM product_detail WHERE product_name LIKE $1',[`%${search}%`],async (err, result) => {
         try {
             if (err) {
@@ -159,6 +176,18 @@ app.get("/getViewproduct/:search", async (req, res) => {
     });
   }
 });
+app.post('/addOrder', async (req, res) => {
+    try {
+      const { product_id, address_id } = req.body;
+      const date = new Date().toISOString().slice(0, 10);
+      await pool.query('INSERT INTO orders (product_id, address_id, date) VALUES ($1, $2, $3)', [product_id, address_id, date]);
+      res.status(200).json({ message: 'Order added successfully' });
+    } catch (error) {
+      console.error('Error adding order:', error);
+      res.status(500).json({ error: 'Error adding order' });
+    }
+  });
+  
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
     }

@@ -24,26 +24,24 @@ return (
 
                         </img>
              </div>
-             <div className='product-bottom-section'>
+              <div className='product-bottom-section'>
                      <div className='product-left'>
                              <h4>{props.product_name}</h4>
                              <p>{props.product_desc}</p>
                          <div className='add-to-cart-button'>
-                    
                              <button className='button-cart' onClick={handleAddToCart}>
                                             Add to Cart
                              </button>
                         </div>
-
-                     </div>
-                     <div className='product-right'>
+              </div>
+              <div className='product-right'>
                             <h2>
-                                    ${props.price}
+                            ₹{props.price}
                             </h2>
                             <div className='rating'>
                                      <Rating rating={props.rating} />
                             </div>
-                     </div>
+              </div>
 
              </div>
              </Link>

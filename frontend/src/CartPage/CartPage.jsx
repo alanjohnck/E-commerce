@@ -11,7 +11,6 @@ function CartPage() {
     try {
       const response = await axios.get('http://localhost:8000/getCartData');
       setCartData(response.data);
-      console.log(response.data)
     } catch (error) {
       console.error('Error getting cart data:', error);
     }
@@ -42,9 +41,9 @@ function CartPage() {
               <img src={item.product_image} alt={item.NAME} className="item-image" />
               
                 <div className="item-name">{item.product_name}</div>
-                <div className="item-info">Quantity: {item.QUANTITY} </div>
+                <div className="item-info">Quantity: 1</div>
                 <div className="item-rating">rating:<Rating rating={3} /></div>
-                <div className="item-info"> Price:<span> ${item.product_price}</span></div>
+                <div className="item-info"> Price:<span> ₹{item.product_price}</span></div>
               
                 <button className="delete-button" onClick={() => removeFromCart(item.cart_id)}>
   <i className="fas fa-trash-alt"></i>

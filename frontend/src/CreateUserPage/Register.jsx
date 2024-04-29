@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./register.css";
+import './register.css';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -35,17 +35,17 @@ function Register() {
         <div>
             <div className='register-container'>
                 <div className='register-image'>
-                    <h1>Register</h1>
-                    <img src="/images/boywithcart.png" alt="Register Image" />
+                    <h1>SignUp</h1>
+                    <img src="https://cdn-icons-png.freepik.com/512/507/507927.png" alt="Register Image" />
                 </div>
-                <div className='register-main'>
-                    <form className='register-form' onSubmit={e => e.preventDefault()}>
+                <div className='register-form'>
+                    <form onSubmit={e => e.preventDefault()}>
                         <input type='text' placeholder='First Name' onChange={e => setFirstName(e.target.value)} />
                         <input type='text' placeholder='Last Name' onChange={e => setLastName(e.target.value)} />
                         <input type='email' placeholder='Email' onChange={e => setEmail(e.target.value)} />
                         <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} />
                         <input type='password' placeholder='Confirm Password' onChange={e => setConfirmPassword(e.target.value)} />
-                        <button onClick={signup}>Register</button>
+                        <button onClick={signup}>SignUp</button>
                     </form>
                 </div>
             </div>

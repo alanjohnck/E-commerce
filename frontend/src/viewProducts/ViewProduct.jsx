@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar';
 function ViewProduct() {
     const [productData, setProductData] = useState([]);
     const {search} = useParams();
-  
+ 
     useEffect(() => {
       axios.get(`http://localhost:8000/getViewproduct/${search}`,)
         .then((response) => {

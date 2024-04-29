@@ -289,3 +289,23 @@
     border-right: none;
   }
 }
+.link{
+
+  text-decoration: none;
+  color: inherit;
+
+}
+.payment-success{
+  margin: .6%;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: 1rem;
+}
+.continue-shopping{
+  padding: 4%;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  background-color: green;
+}
