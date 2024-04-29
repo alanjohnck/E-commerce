@@ -25,6 +25,7 @@ function Home() {
       .catch((error) => {
         console.log(error);
       });
+     
   }, [productData.length]);
 
   useEffect(() => {
@@ -128,7 +129,7 @@ function Home() {
             <button>Buy</button>
           </div>
           <div className="right-part-img">
-            <img src="https://file.removal.ai/preview/f957a600-6681-4de9-b7c6-8987e59786ff-image.png" alt="ad-image"></img>
+            <img src='/images/image-removebg-preview.png' alt="ad-image"></img>
           </div>
         </div>
       </div>
@@ -232,7 +233,7 @@ function Home() {
       </div>
       <footer className="footer">
         <p>© 2024 E-commerce</p>
-        <p>Contact information: <a href="mailto:shopcart@example.com">shopcart@gmail.com</a>.</p>
+        <p>made with ♥</p>
       </footer>
     </div>
   );

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Rating from '../components/Rating';
 import { Link } from 'react-router-dom';
-import PaymentPage from '../PaymentPage/PaymentPage';
 
 function ProductDetail() {
   const [selectedVariant, setSelectedVariant] = useState('Default');
@@ -103,7 +102,7 @@ function ProductDetail() {
           </div>
           <div className='Detail-rating'>
               <label>Rating:</label>
-              <Rating rating={3} />
+              <Rating rating={product.rating} />
           </div>
           <button className="add-to-cart">Add to Cart</button>
           <button className='add-to-cart Buy-now'><Link className='buy-link' to={
@@ -115,11 +114,14 @@ function ProductDetail() {
         
           <div className='delivery-detail'>
            
-            <h4>Speed Delivery</h4>
+            <h4><u>Speed Delivery</u></h4>
             <p>
               Estimated Delivery on 18th june 2024
             </p>
-
+            <h4><u>In Stock</u></h4>
+            <div className='items-left'>
+            only<span>{product.items_left}</span>items left
+            </div>
           </div>
         </div>
       </div>

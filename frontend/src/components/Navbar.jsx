@@ -42,9 +42,9 @@ useEffect(() => {
         <div className='navbar'>
 
             <ul className='nav-list' >
-                <h1 className='logo-title'>ShopCart</h1>
-                <li className='nav-item'>Home</li>
-                <li className='nav-item'>About</li>
+                <h1 className='logo-title'><Link className='link' to='/'>ShopCart</Link></h1>
+                <li className='nav-item'><Link className='link' to='/'>Home</Link></li>
+                <li className='nav-item'><Link className='link' to='/viewproduct/all'>About</Link></li>
                 <li className='nav-item'><Link className='link' to='/viewproduct/all'>Products</Link></li>
                 <li className='nav-item delivery'>
                 <div className='main-delivery'>
@@ -55,11 +55,11 @@ useEffect(() => {
                 <div className='exact-detail'>
                 {address && address.state_name && address.pincode ? (
         <p>
-            {address.state_name}, {address.pincode}
+            {address.district}, {address.pincode}
         </p>
-    ) : (
+        ) : (
         <p>Add your Address</p>
-    )}
+         )}
                 </div>
                 </li>
             </ul>
