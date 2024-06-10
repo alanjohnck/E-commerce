@@ -1,8 +1,8 @@
 A fully functional E-commerce website
 
-frontend:React
+frontend:React.js
 
-backend:node js,posgreSQL
+backend:Node.js,PostgreSQL
 
 ![Screenshot 2024-05-15 133338](https://github.com/alanjohnck/E-commerce/assets/118127993/e482b179-66f7-416f-aaae-c2a985968cb0)
 
